@@ -13,6 +13,9 @@ SAVEHIST=10000
 
 setopt append_history share_history hist_ignore_dups hist_reduce_blanks PROMPT_SUBST
 
+# Crear directorios necesarios
+mkdir -p "$ZSHLOCAL"
+
 autoload -Uz compinit
 compinit -d "$ZSH_COMPDUMP" -C
 
@@ -27,3 +30,4 @@ source "$ZDOTDIR/heavy-functions.zsh"
 source "$ZDOTDIR/hooks.zsh"
 source "$ZDOTDIR/prompt.zsh"
 source "$ZDOTDIR/startup.zsh"
+

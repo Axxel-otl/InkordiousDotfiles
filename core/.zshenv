@@ -1,13 +1,27 @@
-# Zsh usa ~/.config/zsh como directorio principal
-export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+# =========================
+# XDG Base Directories
+# =========================
 
-# Directorio para estado, historial y demás basura generada
-export ZSHLOCAL="${XDG_DATA_HOME:-$HOME/.local/share}/zsh"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
 
-mkdir -p "$ZSHLOCAL"
+# =========================
+# Zsh config (dotfiles)
+# =========================
 
-# Historial
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
+# =========================
+# Zsh generated data
+# =========================
+
+export ZSHLOCAL="$XDG_STATE_HOME/zsh"
+
+# History
 export HISTFILE="$ZSHLOCAL/history"
 
-# Compdump (autocompletado)
-export ZCOMPDUMP="$ZSHLOCAL/.zcompdump"
+# Completion dump
+export ZSH_COMPDUMP="$ZSHLOCAL/.zcompdump"
+export ZCOMPDUMP="$ZSH_COMPDUMP"
