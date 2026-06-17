@@ -20,7 +20,7 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export ZSHLOCAL="$XDG_STATE_HOME/zsh"
 
 # History
-export HISTFILE="$ZSHLOCAL/history"
+export ZHISTFILE="$ZSHLOCAL/history"
 
 # Completion dump
 export ZSH_COMPDUMP="$ZSHLOCAL/.zcompdump"

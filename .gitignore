@@ -1,3 +1,4 @@
 **/.zcompdump
 **/.zcompdump.zwc
 *.zwc
+**/,zsh_history
