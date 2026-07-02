@@ -10,28 +10,17 @@ Pero antes de seguir con nada, vamos a poner un poco en cuenta la estructura de 
 
 <details>
 <summary>Estructura de este repositorio</summary>
+  
 ```text
-  .
+.
 ├── core
 │   ├── .config
 │   │   └── zsh
-│   │       ├── aliases.zsh
-│   │       ├── exports.zsh
-│   │       ├── functions.zsh
-│   │       ├── heavy-functions.zsh
-│   │       ├── hooks.zsh
-│   │       ├── prompt.zsh
-│   │       ├── startup.zsh
-│   │       ├── variables.zsh
-│   │       ├── .zshignore
-│   │       └── .zshrc
 │   ├── .local
 │   │   └── bin
-│   │       ├── git-cc
-│   │       ├── git-db
-│   │       └── git-nb
 │   └── .zshenv
 ├── .git
+│   ├── COMMIT_EDITMSG
 │   ├── config
 │   ├── description
 │   ├── HEAD
@@ -56,62 +45,48 @@ Pero antes de seguir con nada, vamos a poner un poco en cuenta la estructura de 
 │   ├── logs
 │   │   ├── HEAD
 │   │   └── refs
-│   │       ├── heads
-│   │       │   ├── docs
-│   │       │   │   └── ange
-│   │       │   └── main
-│   │       └── remotes
-│   │           └── origin
-│   │               ├── docs
-│   │               │   └── ange
-│   │               └── HEAD
 │   ├── objects
+│   │   ├── 01
+│   │   ├── 77
+│   │   ├── a1
+│   │   ├── d1
 │   │   ├── info
 │   │   └── pack
-│   │       ├── pack-e12a4d88b8aebf7e0454c6162ba5c0a939369a1d.idx
-│   │       ├── pack-e12a4d88b8aebf7e0454c6162ba5c0a939369a1d.pack
-│   │       └── pack-e12a4d88b8aebf7e0454c6162ba5c0a939369a1d.rev
 │   ├── packed-refs
 │   └── refs
 │       ├── heads
-│       │   ├── docs
-│       │   │   └── ange
-│       │   └── main
 │       ├── remotes
-│       │   └── origin
-│       │       ├── docs
-│       │       │   └── ange
-│       │       └── HEAD
 │       └── tags
 ├── .gitignore
+├── install.sh
 ├── LICENSE
 └── README.md
-  ```
+```
 
 </details>
 
 ---
 
 Ahora, con la estructura de este repositorio explicada, vamos a lo interesante, pero antes de saltar de suicida a la instalación, hay que verificar que tengas todas las dependencias instaladas:
-*(para Arch y derivados)*
 
+*(para Arch y derivados)*
 ```bash
 sudo pacman -S stow git zsh
 ```
 
-_(para Debian y derivados)*
-
+*(para Debian y derivados)*
 ```bash
 sudo apt install stow git zsh
 ```
 
-_(para Fedora y sus derivados)*
-
+*(para Fedora y sus derivados)*
 ```bash
 sudo dnf/dnf5 install stow git zsh
 ```
 
 Y ahora sí, con todo terminado es hora de seguir con la instalación
+
+---
 
 <h3 align="center">Instrucciónes de Instalación</h3>
 
@@ -122,7 +97,7 @@ mkdir $HOME/dotfiles
 cd $HOME/dotfiles
 git clone https://github.com/Axxel-otl/InkordiousDotfiles
 chmod +x install.sh
-./isntall.sh
+./install.sh
 ```
 
 ---
