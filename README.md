@@ -2,6 +2,18 @@
 
 > *Repositorio simple para mis dotfiles de Zsh y Git*
 
+<p align="center">
+  <a href="https://github.com/Axxel-otl/InkordiousDotfiles/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/Axxel-otl/InkordiousDotfiles?style=flat-square&color=81a1c1" alt="Licencia" />
+  </a>
+  <a href="https://github.com/Axxel-otl/InkordiousDotfiles/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/Axxel-otl/InkordiousDotfiles?style=flat-square&color=a3be8c" alt="Colaboradores" />
+  </a>
+  <a href="https://github.com/Axxel-otl/InkordiousDotfiles/stargazers">
+    <img src="https://img.shields.io/github/stars/Axxel-otl/InkordiousDotfiles?style=flat-square&color=ebcb8b" alt="Estrellas" />
+  </a>
+</p>
+
 ---
 
 Estos Dotfiles integran varias funciones para Zsh y Git, haciendo más simple su uso e integrando varias funciones más <3
@@ -9,7 +21,7 @@ Estos Dotfiles integran varias funciones para Zsh y Git, haciendo más simple su
 Pero antes de seguir con nada, vamos a poner un poco en cuenta la estructura de este repositorio:
 
 <details>
-<summary>Estructura de este repositorio</summary>
+<summary>📁Estructura de este repositorio📁</summary>
   
 ```text
 .
