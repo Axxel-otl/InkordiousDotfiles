@@ -18,7 +18,7 @@ echo -e "${CYAN}[CHECK]${NC} Verificando dependencias..."
 if ! command -v stow &>/dev/null; then
   echo -e "${RED}[ERROR]${NC} 'stow' no está instalado."
   echo -e "         Por favor, instálalo usando tu gestor de paquetes."
-  echo -e "         Ejemplo: 'sudo apt install stow', 'brew install stow', 'sudo pacman -S stow' o 'sudo dnf5 install stow'"
+  echo -e "         Ejemplo: 'sudo apt install stow', 'brew install stow', 'sudo pacman -S stow' o 'sudo dnf/dnf5 install stow'"
   exit 1
 fi
 echo -e "        ${GREEN}✔ Stow detectado correctamente.${NC}\n"
