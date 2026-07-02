@@ -40,7 +40,7 @@ echo -e "${CYAN}[STOW]${NC} Enlazando componentes de ${PINK}core${NC}..."
 
 # -v (verbose) para que Stow liste las acciones, -R (restow) para reinstalar
 if stow -vR core 2>&1 | sed "s/^/        /"; then
-  echo -e "\n${PINK}==============================================================${NC}"
+  echo -e "\n${PINK}================================================================${NC}"
   echo -e "${GREEN} ✨ ¡Instalación de InkordiousDotfiles completada con éxito! ✨${NC}"
   echo -e "${PINK}================================================================${NC}"
 else
