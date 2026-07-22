@@ -2,3 +2,5 @@
 **/.zcompdump.zwc
 *.zwc
 **/.zsh_history
+/arch/.config/fastfetch/pngs/*
+!/arch/.config/fastfetch/pngs/.gitkeep
