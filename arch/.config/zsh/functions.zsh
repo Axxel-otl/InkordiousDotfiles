@@ -116,27 +116,36 @@ Execute() {
         python -m venv "$venv" || return 1
       fi
 
-      echo "Preparando entorno..."
-      "$venv/bin/python" -m pip install -q --upgrade pip
-      "$venv/bin/pip" install -q pipreqs pip-tools
-
-      local tmp_requirements="/tmp/requirements_$$.txt"
-
-      echo "Detectando dependencias..."
-      "$venv/bin/pipreqs" \
-        "$(dirname "$(realpath "$file")")" \
-        --force \
-        --savepath "$tmp_requirements" \
-        >/dev/null 2>&1
-
-      if [[ -f "$tmp_requirements" ]]; then
-        echo "Instalando dependencias..."
-        "$venv/bin/pip" install -q -r "$tmp_requirements"
-        rm -f "$tmp_requirements"
+      # Instalar herramientas solo si no existen
+      if ! "$venv/bin/python" -m pip show pipreqs >/dev/null 2>&1; then
+        echo "Instalando herramientas..."
+        "$venv/bin/python" -m pip install --upgrade pip
+        "$venv/bin/python" -m pip install pipreqs
       fi
 
+      local project_dir
+      project_dir="$(dirname "$(realpath "$file")")"
+
+      local tmp_requirements
+      tmp_requirements="$(mktemp)"
+
+      echo "Detectando dependencias..."
+
+      if "$venv/bin/pipreqs" \
+          "$project_dir" \
+          --force \
+          --savepath "$tmp_requirements" \
+          >/dev/null 2>&1 &&
+          [[ -s "$tmp_requirements" ]]; then
+
+        echo "Instalando dependencias..."
+        "$venv/bin/python" -m pip install -r "$tmp_requirements"
+      fi
+
+      rm -f "$tmp_requirements"
+
       "$venv/bin/python" "$file" "${@:2}"
-      ;;
+    ;;
     js)
       echo "Archivo de: JavaScript"
       node "$file" "${@:2}"
