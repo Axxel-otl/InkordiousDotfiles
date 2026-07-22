@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if ! command -v gum >/dev/null; then
+    echo "Error: gum no está instalado"
+    exit 1
+fi
+
+if [ $# -lt 1 ]; then
+    echo "Uso: git fork <repo>"
+    echo "Ejemplo: git fork https://github.com/user/repo.git"
+    exit 1
+fi
+
+SOURCE="$1"
+
+METHOD=$(gum choose \
+    "GitHub fork (gh)" \
+    "Git clone manual")
+
+case "$METHOD" in
+
+"GitHub fork (gh)")
+    if ! command -v gh >/dev/null; then
+        gum style \
+            --foreground 1 \
+            "gh no está instalado"
+        exit 1
+    fi
+
+    gum spin \
+        --spinner dot \
+        --title "Creando fork en GitHub..." \
+        -- gh repo fork "$SOURCE" --clone
+
+    ;;
+
+
+"Git clone manual")
+
+    NAME=$(basename "$SOURCE" .git)
+
+    gum style \
+        --bold \
+        "Clonando $NAME"
+
+    git clone "$SOURCE" "$NAME"
+
+    cd "$NAME"
+
+    git remote rename origin upstream
+
+    gum input \
+        --placeholder "URL de tu repositorio fork" \
+        > /tmp/git-fork-origin
+
+    NEW_ORIGIN=$(cat /tmp/git-fork-origin)
+
+    git remote add origin "$NEW_ORIGIN"
+
+    git branch --set-upstream-to=origin/main main 2>/dev/null || true
+
+    gum style \
+        --foreground 2 \
+        "Fork manual creado"
+
+    git remote -v
+
+    ;;
+
+esac
