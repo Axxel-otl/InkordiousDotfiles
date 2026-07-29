@@ -15,8 +15,6 @@ mkdir -p "$ZSHLOCAL"
 autoload -Uz compinit
 compinit -d "$ZCOMPDUMP" -C
 
-source "$ZSH/oh-my-zsh.sh"
-
 [[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && \
     source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

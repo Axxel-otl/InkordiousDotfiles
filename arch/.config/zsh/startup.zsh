@@ -11,3 +11,5 @@ if [[ -z "$FASTFETCH_SHOWN" ]]; then
     fastfetch
   fi
 fi
+
+setopt interactivecomments
