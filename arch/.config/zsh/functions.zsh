@@ -239,3 +239,7 @@ Zlist() {
         cat "$f"
     done
 }
+
+anaconda() {
+    eval "$("$HOME/anaconda3/bin/conda" shell.zsh hook)"
+}
