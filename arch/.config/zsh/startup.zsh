@@ -13,3 +13,4 @@ if [[ -z "$FASTFETCH_SHOWN" ]]; then
 fi
 
 setopt interactivecomments
+eval "$(zoxide init zsh)"
