@@ -1,3 +1,12 @@
+Cafecito() {
+  if [[ -x "$(command -v paru)" ]]; then
+    paru -Syu --devel
+  elif [[ -x "$(command -v yay)" ]]; then
+    yay -Syu --devel
+  else
+    sudo pacman -Syu
+}
+
 Copy() {
   if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
     wl-copy
