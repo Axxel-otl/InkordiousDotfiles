@@ -5,6 +5,7 @@ Cafecito() {
     yay -Syu --devel
   else
     sudo pacman -Syu
+  fi
 }
 
 Copy() {
