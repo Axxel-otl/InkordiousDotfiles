@@ -1,10 +1,15 @@
 Cafecito() {
   if [[ -x "$(command -v paru)" ]]; then
     paru -Syu --devel
+    paru -Rns $(paru -Qdtq)
+    paru -Sc
   elif [[ -x "$(command -v yay)" ]]; then
     yay -Syu --devel
+    yay -Rns $(yay -Qdtq)
+    yay -Sc
   else
     sudo pacman -Syu
+    sudo pacman -Rns $(pacman -Qdtq)
   fi
 }
 
