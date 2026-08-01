@@ -1,0 +1,15 @@
+# basura de zsh
+.zcompdump*
+*.zwc
+*.save
+*.bak
+
+# cachés
+.cache/**
+cache/**
+tmp/**
+**/tmp/**
+
+# historial o artefactos
+*.log
+*.out

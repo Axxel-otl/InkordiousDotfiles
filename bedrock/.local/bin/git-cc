@@ -1,0 +1,44 @@
+#!/bin/bash
+
+git diff --cached --quiet && {
+  echo "No hay cambios staged"
+  exit 1
+}
+
+type=$(gum choose feat fix docs style refactor test chore perf build ci revert)
+
+breaking=$(gum choose "no" "sí (BREAKING CHANGE)")
+
+scope=$(gum input --placeholder "scope (opcional)")
+msg=$(gum input --placeholder "mensaje del commit")
+
+[[ -z "$msg" ]] && {
+  echo "Mensaje vacío no permitido"
+  exit 1
+}
+
+# construir tipo con !
+if [ "$breaking" = "sí (BREAKING CHANGE)" ]; then
+  type="${type}!"
+fi
+
+# construir mensaje
+if [ -n "$scope" ]; then
+  commit_msg="$type($scope): $msg"
+else
+  commit_msg="$type: $msg"
+fi
+
+git commit -S -m "$commit_msg" || {
+  echo "Falló commit (firma o config)"
+  exit 1
+}
+
+output=$(git log --show-signature -1)
+
+echo "$output" | grep -q "Good" || {
+  echo "Firma inválida"
+  exit 1
+}
+
+echo "OK: $commit_msg"
