@@ -255,6 +255,6 @@ Zlist() {
     done
 }
 
-anaconda() {
+Anaconda() {
     eval "$("$HOME/anaconda3/bin/conda" shell.zsh hook)"
 }
