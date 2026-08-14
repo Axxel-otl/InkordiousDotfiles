@@ -26,3 +26,5 @@ source "$ZDOTDIR/hooks.zsh"
 source "$ZDOTDIR/prompt.zsh"
 source "$ZDOTDIR/startup.zsh"
 source "$ZDOTDIR/own.zsh"
+
+export PATH=$PATH:/home/axxel/.spicetify
