@@ -23,6 +23,10 @@ error_info() {
   (( LAST_EXIT )) && echo "!${LAST_EXIT}:"
 }
 
+current_strat() {
+  echo "[$(brl which -c)]"
+}
+
 git_info() {
   git rev-parse --is-inside-work-tree &>/dev/null || return
 
@@ -67,7 +71,7 @@ build_prompt() {
   local langs="$(lang_info)"
 
   local prompt="%F{red}%m%f"
-  prompt+=":%F{green}%f"
+  prompt+=":%F{green}$(current_strat)%f"
   prompt+=":%F{blue}%n%f"
   prompt+=":%F{yellow}$(shorten_path)%f"
 
