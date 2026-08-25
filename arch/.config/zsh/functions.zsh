@@ -199,7 +199,7 @@ Execute() {
   return $exit_code
 }
 
-Zbackup() {
+ZBackup() {
   local base="$HOME/.config"
   local stamp
   stamp=$(date +%F-%H%M%S)
@@ -228,7 +228,7 @@ cat() {
   fi
 }
 
-Zlist() {
+ZList() {
     local f rel skip pattern
     local ignore_file="$ZDOTDIR/.zshignore"
     local patterns=()

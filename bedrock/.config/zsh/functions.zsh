@@ -199,7 +199,7 @@ Execute() {
   return $exit_code
 }
 
-Zbackup() {
+ZBackup() {
   local base="$HOME/.config"
   local stamp
   stamp=$(date +%F-%H%M%S)
@@ -228,7 +228,7 @@ cat() {
   fi
 }
 
-Zlist() {
+ZList() {
     local f rel skip pattern
     local ignore_file="$ZDOTDIR/.zshignore"
     local patterns=()
@@ -257,4 +257,18 @@ Zlist() {
 
 Anaconda() {
     eval "$("$HOME/anaconda3/bin/conda" shell.zsh hook)"
+}
+
+ZApply() {
+    local user _ uid gid gecos home shell
+
+    while IFS=: read -r user _ uid gid gecos home shell; do
+        [[ -d "$home" ]] || continue
+
+        if [[ ! -e "$home/dotfiles" ]]; then
+            sudo ln -sfn /opt/dotfiles "$home/dotfiles"
+        fi
+
+        sudo stow -d /opt/dotfiles -t "$home" -R bedrock
+    done < <(getent passwd)
 }
