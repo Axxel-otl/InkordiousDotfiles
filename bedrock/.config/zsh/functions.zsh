@@ -264,6 +264,7 @@ ZApply() {
 
     while IFS=: read -r user _ uid gid gecos home shell; do
         [[ -d "$home" ]] || continue
+        [[ "$(stat -c '%u' "$home")" -eq "$uid" ]] || continue
 
         if [[ ! -e "$home/dotfiles" ]]; then
             sudo ln -sfn /opt/dotfiles "$home/dotfiles"

@@ -258,3 +258,18 @@ ZList() {
 Anaconda() {
     eval "$("$HOME/anaconda3/bin/conda" shell.zsh hook)"
 }
+
+ZApply() {
+    local user _ uid gid gecos home shell
+
+    while IFS=: read -r user _ uid gid gecos home shell; do
+        [[ -d "$home" ]] || continue
+        [[ "$(stat -c '%u' "$home")" -eq "$uid" ]] || continue
+
+        if [[ ! -e "$home/dotfiles" ]]; then
+            sudo ln -sfn /opt/dotfiles "$home/dotfiles"
+        fi
+
+        sudo stow -d /opt/dotfiles -t "$home" -R arch
+    done < <(getent passwd)
+}
