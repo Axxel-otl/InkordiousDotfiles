@@ -5,3 +5,4 @@
 **fastfetch/pngs/*
 !/arch/.config/fastfetch/pngs/.gitkeep
 **/own.zsh
+**/python3.11
