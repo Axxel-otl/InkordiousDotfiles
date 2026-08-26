@@ -1,11 +1,55 @@
 # Inkordious Dotfiles
 
-This repository has my dotfiles for zsh and git
+Howdy, I'm axxel, the creator of the dotfiles in this repository, this dotfiles include:
 
-## Instructions
+- zsh configs
+
+- git commands
+
+- fastfetch configs
+
+And I'm planning to add more!
+
+## Guide
+
+- [Inkordious Dotfiles](#inkordious-dotfiles)
+
+- [Guide](guide)
+
+- [Separated Packages](#separated-packages)
+  
+  - [Bedrock](#bedrock)
+  
+  - [Arch](#arch)
+
+## Separated Packages
+
+This repository actually supports 2 Linux Distributions, and in the future maybe I'll add more
+
+### Bedrock
+
+This may be the strangest distro, you may think "wth is bedrock, wasn't it from minecraft?" but no, [Bedrock Linux](https://bedrocklinux.org) is a meta-linux distribution in which you can create multiple stratums of diferent distributions or even rootfs.
+
+It is located in `./bedrock` and can be installed this way:
+
 ```shell
-mkdir $HOME/dotfiles
-cd $HOME/dotfiles
-git clone https://github.com/Axxel-otl/InkordiousDotfiles
-stow core
+sudo git clone https://github.com/Axxel-otl/InkordiousDotfiles.git /opt/dotfiles
+sudo chown "$USER:$USER" /opt/dotfiles
+chmod 777 /opt/dotfiles # The 777 should not be used if you want maximum security, and you should use 755 if you want nobody to be able to write on them
+stow -d /opt/dotfiles -t "$HOME" bedrock --adopt
+exec zsh
+ZApply
+```
+
+### Arch
+
+This are for the well-known Arch Linux, and are installed this way
+
+```shell
+sudo git clone https://github.com/Axxel-otl/InkordiousDotfiles.git /opt/dotfiles
+sudo chown "$USER:$USER" /opt/dotfiles
+chmod 777 /opt/dotfiles # The 777 should not be used if you want maximum security, and you should use 755 if you want nobody to be able to write on them
+stow -d /opt/dotfiles -t "$HOME" bedrock --adopt
+exec zsh
+ZApply
 ```
