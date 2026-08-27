@@ -33,10 +33,14 @@ This may be the strangest distro, you may think "wth is bedrock, wasn't it from 
 It is located in `./bedrock` and can be installed this way:
 
 ```shell
-sudo git clone https://github.com/Axxel-otl/InkordiousDotfiles.git /opt/dotfiles
+sudo mkdir -p /opt/dotfiles
 sudo chown "$USER:$USER" /opt/dotfiles
-chmod 777 /opt/dotfiles # The 777 should not be used if you want maximum security, and you should use 755 if you want nobody to be able to write on them
+
+git clone https://github.com/Axxel-otl/InkordiousDotfiles.git /opt/dotfiles
+
+cd /opt/dotfiles
 stow -d /opt/dotfiles -t "$HOME" bedrock --adopt
+
 exec zsh
 ZApply
 ```
@@ -46,10 +50,14 @@ ZApply
 This are for the well-known Arch Linux, and are installed this way
 
 ```shell
-sudo git clone https://github.com/Axxel-otl/InkordiousDotfiles.git /opt/dotfiles
+sudo mkdir -p /opt/dotfiles
 sudo chown "$USER:$USER" /opt/dotfiles
-chmod 777 /opt/dotfiles # The 777 should not be used if you want maximum security, and you should use 755 if you want nobody to be able to write on them
-stow -d /opt/dotfiles -t "$HOME" bedrock --adopt
+
+git clone https://github.com/Axxel-otl/InkordiousDotfiles.git /opt/dotfiles
+
+cd /opt/dotfiles
+stow -d /opt/dotfiles -t "$HOME" arch --adopt
+
 exec zsh
 ZApply
 ```
