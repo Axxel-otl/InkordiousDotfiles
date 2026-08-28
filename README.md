@@ -26,11 +26,77 @@ And I'm planning to add more! ¯\\\_(ツ)_/¯
 
 - [Guide](#guide)
 
+- [Tree](#tree)
+
 - [Separated Packages](#separated-packages)
   
   - [Bedrock](#bedrock)
   
   - [Arch](#arch)
+
+## Tree
+```tree
+.
+├── .gitignore
+├── arch
+│   ├── .config
+│   │   ├── fastfetch
+│   │   │   ├── config.jsonc
+│   │   │   └── pngs
+│   │   │       └── .gitkeep
+│   │   └── zsh
+│   │       ├── .zshignore
+│   │       ├── .zshrc
+│   │       ├── aliases.zsh
+│   │       ├── exports.zsh
+│   │       ├── functions.zsh
+│   │       ├── heavy-functions.zsh
+│   │       ├── hooks.zsh
+│   │       ├── own.zsh.example
+│   │       ├── prompt.zsh
+│   │       ├── startup.zsh
+│   │       └── variables.zsh
+│   ├── .local
+│   │   └── bin
+│   │       ├── git-cc
+│   │       ├── git-db
+│   │       ├── git-fork
+│   │       ├── git-graph
+│   │       ├── git-nb
+│   │       └── git-tree
+│   └── .zshenv
+├── bedrock
+│   ├── .config
+│   │   ├── fastfetch
+│   │   │   ├── config.jsonc
+│   │   │   └── pngs
+│   │   │       └── .gitkeep
+│   │   └── zsh
+│   │       ├── .zshignore
+│   │       ├── .zshrc
+│   │       ├── aliases.zsh
+│   │       ├── exports.zsh
+│   │       ├── functions.zsh
+│   │       ├── heavy-functions.zsh
+│   │       ├── hooks.zsh
+│   │       ├── own.zsh.example
+│   │       ├── prompt.zsh
+│   │       ├── startup.zsh
+│   │       └── variables.zsh
+│   ├── .local
+│   │   └── bin
+│   │       ├── git-cc
+│   │       ├── git-db
+│   │       ├── git-fork
+│   │       ├── git-graph
+│   │       ├── git-nb
+│   │       └── git-tree
+│   └── .zshenv
+├── CONTRIBUTING.md
+├── install.sh
+├── LICENSE
+└── README.md
+```
 
 ## Separated Packages
 
