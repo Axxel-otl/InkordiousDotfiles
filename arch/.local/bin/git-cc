@@ -5,7 +5,7 @@ git diff --cached --quiet && {
   exit 1
 }
 
-type=$(gum choose feat fix docs style refactor test chore perf build ci revert)
+type=$(gum choose feat fix delete style docs chore)
 
 breaking=$(gum choose "no" "sí (BREAKING CHANGE)")
 
