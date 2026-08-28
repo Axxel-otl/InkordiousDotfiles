@@ -1,3 +1,7 @@
+#
+# Note: this install script is not officially supported and it is a beta version, I will fix it to work correctly and then I'll make it the oficial installation way
+#
+
 #!/usr/bin/env bash
 
 # ---- CONFIGURACIÓN DE COLORES (Estilo Neón / la Makefile de Atomic-Linux) ----
