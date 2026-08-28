@@ -43,6 +43,7 @@ stow -d /opt/dotfiles -t "$HOME" bedrock --adopt
 
 exec zsh
 ZApply
+exec zsh
 ```
 
 ### Arch
@@ -60,4 +61,5 @@ stow -d /opt/dotfiles -t "$HOME" arch --adopt
 
 exec zsh
 ZApply
+exec zsh
 ```
