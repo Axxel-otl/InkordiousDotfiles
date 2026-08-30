@@ -5,4 +5,5 @@
 **/fastfetch/pngs/*
 !**/.config/fastfetch/pngs/.gitkeep
 **/own.zsh
-**/python3.11
+**/.local/bin/
+!**/.local/bin/git-*
