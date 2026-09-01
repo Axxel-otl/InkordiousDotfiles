@@ -47,6 +47,10 @@ And I'm planning to add more! ¯\\\_(ツ)_/¯
 │   │   │   ├── config.jsonc
 │   │   │   └── pngs
 │   │   │       └── .gitkeep
+│   │   ├── kitty
+│   │   │   ├── kitty.conf
+│   │   │   ├── theme.conf
+│   │   │   └── userprefs.conf
 │   │   └── zsh
 │   │       ├── .zshignore
 │   │       ├── .zshrc
@@ -74,6 +78,10 @@ And I'm planning to add more! ¯\\\_(ツ)_/¯
 │   │   │   ├── config.jsonc
 │   │   │   └── pngs
 │   │   │       └── .gitkeep
+│   │   ├── kitty
+│   │   │   ├── kitty.conf
+│   │   │   ├── theme.conf
+│   │   │   └── userprefs.conf
 │   │   └── zsh
 │   │       ├── .zshignore
 │   │       ├── .zshrc
@@ -93,9 +101,11 @@ And I'm planning to add more! ¯\\\_(ツ)_/¯
 │   │       ├── git-fork
 │   │       ├── git-graph
 │   │       ├── git-nb
-│   │       └── git-tree
+│   │       ├── git-tree
+│   │       └── ldicons
 │   └── .zshenv
 ├── CONTRIBUTING.md
+├── CREDITS.md
 ├── install.sh
 ├── LICENSE
 └── README.md
