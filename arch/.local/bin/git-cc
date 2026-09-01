@@ -5,40 +5,59 @@ git diff --cached --quiet && {
   exit 1
 }
 
-type=$(gum choose feat fix delete style docs chore)
+type=$(gum choose feat fix delete style docs chore) || exit 1
 
-breaking=$(gum choose "no" "sí (BREAKING CHANGE)")
+breaking=$(gum choose "no" "sí (BREAKING CHANGE)") || exit 1
 
-scope=$(gum input --placeholder "scope (opcional)")
-msg=$(gum input --placeholder "mensaje del commit")
+scope=$(gum input --placeholder "scope (opcional)") || exit 1
+
+msg=$(gum input --placeholder "mensaje del commit") || exit 1
 
 [[ -z "$msg" ]] && {
   echo "Mensaje vacío no permitido"
   exit 1
 }
 
-# construir tipo con !
+# Construir tipo con !
 if [ "$breaking" = "sí (BREAKING CHANGE)" ]; then
   type="${type}!"
 fi
 
-# construir mensaje
+# Construir subject
 if [ -n "$scope" ]; then
-  commit_msg="$type($scope): $msg"
+  commit_subject="$type($scope): $msg"
 else
-  commit_msg="$type: $msg"
+  commit_subject="$type: $msg"
 fi
 
-git commit -S -m "$commit_msg" || {
-  echo "Falló commit (firma o config)"
-  exit 1
-}
+# Escribir cuerpo multilínea
+commit_body=$(gum write \
+  --header "Cuerpo del commit (opcional)" \
+  --placeholder $'Describe los cambios...\n\nPuedes usar Markdown:\n- cambio 1\n- cambio 2\n\nDéjalo vacío si no necesitas cuerpo.' \
+  --width 80 \
+  --height 12
+) || exit 1
 
-output=$(git log --show-signature -1)
+# Crear commit
+if [ -n "$commit_body" ]; then
+  git commit -S \
+    -m "$commit_subject" \
+    -m "$commit_body" || {
+      echo "Falló el commit (firma o configuración)"
+      exit 1
+    }
+else
+  git commit -S \
+    -m "$commit_subject" || {
+      echo "Falló el commit (firma o configuración)"
+      exit 1
+    }
+fi
 
-echo "$output" | grep -q "Good" || {
+# Verificar la firma
+git verify-commit HEAD || {
   echo "Firma inválida"
   exit 1
 }
 
-echo "OK: $commit_msg"
+echo "OK: $commit_subject"
