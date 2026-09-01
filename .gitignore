@@ -5,5 +5,5 @@
 **/fastfetch/pngs/*
 !**/.config/fastfetch/pngs/.gitkeep
 **/own.zsh
-**/.local/bin/
+**/.local/bin/*
 !**/.local/bin/git-*
