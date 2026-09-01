@@ -18,6 +18,8 @@ Howdy, I'm axxel, the creator of the dotfiles in this repository.
 
 - fastfetch configs
 
+- kitty configs
+
 And I'm planning to add more! ¯\\\_(ツ)_/¯
 
 ## Guide
